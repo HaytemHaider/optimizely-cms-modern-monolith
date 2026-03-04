@@ -1,14 +1,13 @@
 @using InertiaCore
-@inject InertiaCore.Interfaces.IInertiaVersion VersionProvider
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Optimizely CMS + Inertia Demo</title>
-    <script type="module" src="http://localhost:5173/src/app.tsx"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title inertia>Optimizely + Inertia</title>
 </head>
-<body class="bg-slate-50">
+<body>
     @await Inertia.Html(Model)
 </body>
 </html>

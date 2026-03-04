@@ -2,17 +2,17 @@ using EPiServer.ContentApi.Core.Serialization;
 using EPiServer.ContentApi.Core.Serialization.Internal;
 using EPiServer.ContentApi.Core.Serialization.Models;
 using EPiServer.Framework.Web;
-using InertiaCore;
+using EPiServer.Web.Routing;
+using InertiaCore.Extensions;
 using OptimizelyCmsInertiaDemo.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services
-    .AddCmsAspNetCore()
+    .AddCms()
     .AddContentDeliveryApi(options =>
     {
         options.SiteDefinitionApiEnabled = true;
-        options.SetValidateTemplateForContentUrl(true);
     });
 
 builder.Services.AddControllersWithViews();

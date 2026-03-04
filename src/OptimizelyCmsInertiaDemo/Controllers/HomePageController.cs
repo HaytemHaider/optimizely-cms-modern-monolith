@@ -1,5 +1,6 @@
 using EPiServer.Core;
 using EPiServer.Web.Mvc;
+using EPiServer.Web.Mvc.Html;
 using InertiaCore;
 using Microsoft.AspNetCore.Mvc;
 using OptimizelyCmsInertiaDemo.Models.Pages;
@@ -25,9 +26,9 @@ public class HomePageController : PageController<HomePage>
             return new JsonResult(projected);
         }
 
-        return Inertia.Render("Home", new
+        return Inertia.Render(currentPage.Name, new
         {
-            pageType = "HomePage",
+            pageType = currentPage.PageTypeName,
             content = projected,
             links = new
             {
