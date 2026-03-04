@@ -109,6 +109,8 @@ npx playwright test
 
 If startup fails in Development with a `System.AggregateException` mentioning `RemoteCacheSynchronization` during `builder.Build()`, this project disables build-time DI validation in `Program.cs` because some Optimizely services are resolved lazily at runtime.
 
+If you see `No service for type 'EPiServer.Shell.Modules.ProtectedModuleOptions' has been registered` at `MapContent()`, `Program.cs` now registers a default `ProtectedModuleOptions` instance for `EPiServer.Cms.Shell.VppInitializer`.
+
 ## Notes
 
 - `OptimizelyCdaInertiaContentProjector` centralizes CDA conversion so controllers stay thin.

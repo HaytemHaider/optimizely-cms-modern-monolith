@@ -2,6 +2,7 @@ using EPiServer.ContentApi.Core.Serialization;
 using EPiServer.ContentApi.Core.Serialization.Internal;
 using EPiServer.ContentApi.Core.Serialization.Models;
 using EPiServer.Framework.Web;
+using EPiServer.Shell.Modules;
 using EPiServer.Web.Routing;
 using InertiaCore.Extensions;
 using OptimizelyCmsInertiaDemo.Services;
@@ -25,6 +26,9 @@ builder.Services
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddInertia();
+
+// Required by EPiServer.Cms.Shell.VppInitializer when extension endpoints are mapped.
+builder.Services.AddSingleton(new ProtectedModuleOptions());
 
 builder.Services.AddScoped<IInertiaContentProjector, OptimizelyCdaInertiaContentProjector>();
 
