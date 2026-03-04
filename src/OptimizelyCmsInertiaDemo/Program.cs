@@ -8,6 +8,14 @@ using OptimizelyCmsInertiaDemo.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Optimizely registers some framework services that are resolved lazily at runtime.
+// ASP.NET Core's build-time validation can fail early in Development even though runtime resolution works.
+builder.Host.UseDefaultServiceProvider(options =>
+{
+    options.ValidateOnBuild = false;
+    options.ValidateScopes = false;
+});
+
 builder.Services
     .AddCms()
     .AddContentDeliveryApi(options =>

@@ -105,6 +105,10 @@ npx playwright test
 
 ---
 
+## Troubleshooting
+
+If startup fails in Development with a `System.AggregateException` mentioning `RemoteCacheSynchronization` during `builder.Build()`, this project disables build-time DI validation in `Program.cs` because some Optimizely services are resolved lazily at runtime.
+
 ## Notes
 
 - `OptimizelyCdaInertiaContentProjector` centralizes CDA conversion so controllers stay thin.
