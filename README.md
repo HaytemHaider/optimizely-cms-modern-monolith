@@ -16,7 +16,7 @@ Developer-focused proof-of-concept showing:
 
 ## Prerequisites
 
-- .NET SDK 10 (preview) or compatible SDK for the configured `TargetFramework`
+- .NET SDK 8 (LTS) or compatible SDK for the configured `TargetFramework`
 - Node.js 20+
 - npm 10+
 
@@ -104,6 +104,12 @@ npx playwright test
 ```
 
 ---
+
+## Troubleshooting
+
+If startup fails in Development with a `System.AggregateException` mentioning `RemoteCacheSynchronization` during `builder.Build()`, this project disables build-time DI validation in `Program.cs` because some Optimizely services are resolved lazily at runtime.
+
+If you see `No service for type 'EPiServer.Shell.Modules.ProtectedModuleOptions' has been registered` at `MapContent()`, `Program.cs` now registers a default `ProtectedModuleOptions` instance for `EPiServer.Cms.Shell.VppInitializer`.
 
 ## Notes
 
