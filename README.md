@@ -16,7 +16,7 @@ Developer-focused proof-of-concept showing:
 
 ## Prerequisites
 
-- .NET SDK 10 (preview) or compatible SDK for the configured `TargetFramework`
+- .NET SDK 8 (LTS) or compatible SDK for the configured `TargetFramework`
 - Node.js 20+
 - npm 10+
 
